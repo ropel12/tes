@@ -1,0 +1,24 @@
+name: remote ssh command
+on: 
+  push:
+    branches:
+      -main
+  pull_request:
+      types: [synchronize]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: multiple command
+      uses: appleboy/ssh-action@v0.1.9
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          mkdir Test1
+          touch main.go
+          echo  "package main" >> main.go
