@@ -1,4 +1,4 @@
-name: otomasi deploy server
+name: ssh
 on: 
   push:
     branches:
