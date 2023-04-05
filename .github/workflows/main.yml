@@ -1,12 +1,11 @@
-name: remote ssh command
+name: otomasi deploy server
 on: 
   push:
     branches:
-      -main
+      - main
   pull_request:
-      types: [synchronize]
+    types: [synchronized]
 jobs:
-
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -19,6 +18,4 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: |
-          mkdir Test1
-          touch main.go
-          echo  "package main" >> main.go
+          docker ps -a
