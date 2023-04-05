@@ -19,4 +19,6 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd tes
-          /usr/local/go/bin/go run main.go
+          go build -o bin main.go
+          chmod +x bin
+          ./bin
